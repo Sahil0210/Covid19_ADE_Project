@@ -1,0 +1,31 @@
+{
+	"name": "ds_covid19_http_deathcases",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_covid19_http_casesdeaths",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"relativeURL": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().relativeURL",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

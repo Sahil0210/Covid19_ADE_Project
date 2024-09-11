@@ -1,0 +1,52 @@
+{
+	"name": "pl_population_load",
+	"properties": {
+		"activities": [
+			{
+				"name": "From Blob to raw in ADLS",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_population_covid",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Population transformation",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "From Blob to raw in ADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_population_trans",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Execute Parent Pipeline"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-09-10T11:03:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

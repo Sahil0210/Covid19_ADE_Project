@@ -1,0 +1,9 @@
+{
+	"name": "covid19datafactorySSD",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0ca3d081-f06f-4195-8bff-91582ddca9df",
+		"tenantId": "3ffb9f49-8d00-496c-a65b-026864b0faa4"
+	}
+}
