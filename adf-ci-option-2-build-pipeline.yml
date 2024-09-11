@@ -12,9 +12,9 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  subscriptionId: '93c291c1-cac5-4d32-9374-90963e78a919'  # Use your subscription ID
-  resourceGroup: 'dev-ci-cd-demo-rg'                      # Use the resource group for the development data factory
-  dataFactory: 'dev-ci-cd-demo-adf'                       # Use your development data factory name
+  subscriptionId: '0749b64c-c8f9-4842-a5dd-b6f48dfcf695'  # Use your subscription ID
+  resourceGroup: 'covid19-project'                      # Use the resource group for the development data factory
+  dataFactory: 'covid19datafactorySSD'                       # Use your development data factory name
   PackageFolder: 'build'                                  # Use the GIT folder under which you have the package files
   adfRootFolder: ''                                       # Use the GIT folder under which you have the ADF resources. If it's root leave as blank
 
