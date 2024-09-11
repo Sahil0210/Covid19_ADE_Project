@@ -1,0 +1,187 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "covid19datafactorySSD"
+		},
+		"ls__covid_datalake_population_raw_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls__covid_datalake_population_raw'"
+		},
+		"ls_blobstrorage_population_zip_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blobstrorage_population_zip'"
+		},
+		"ls_databricks_Population_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databricks_Population'"
+		},
+		"ls_datalake_deathcases_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_datalake_deathcases'"
+		},
+		"ls_lookup_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_lookup'"
+		},
+		"ls_sql_db_ccovid_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_sql_db_ccovid'"
+		},
+		"ls__covid_datalake_population_raw_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_covid19_http_casesdeaths_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ecdc.blob.core.windows.net/"
+		},
+		"ls_databricks_Population_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0909-121004-bwib9mgg"
+		},
+		"ls_datalake_deathcases_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_lookup_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "covid19-server-ssd.database.windows.net"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "covid-db"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adm"
+		},
+		"Event Population trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/0749b64c-c8f9-4842-a5dd-b6f48dfcf695/resourceGroups/covid19-project/providers/Microsoft.Storage/storageAccounts/covid19ssdblob"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "covid19datafactorySSD_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls__covid_datalake_population_raw_accountKey": {
+						"value": "[parameters('ls__covid_datalake_population_raw_accountKey')]"
+					},
+					"ls_blobstrorage_population_zip_connectionString": {
+						"value": "[parameters('ls_blobstrorage_population_zip_connectionString')]"
+					},
+					"ls_databricks_Population_accessToken": {
+						"value": "[parameters('ls_databricks_Population_accessToken')]"
+					},
+					"ls_datalake_deathcases_accountKey": {
+						"value": "[parameters('ls_datalake_deathcases_accountKey')]"
+					},
+					"ls_lookup_accountKey": {
+						"value": "[parameters('ls_lookup_accountKey')]"
+					},
+					"ls_sql_db_ccovid_password": {
+						"value": "[parameters('ls_sql_db_ccovid_password')]"
+					},
+					"ls__covid_datalake_population_raw_properties_typeProperties_url": {
+						"value": "[parameters('ls__covid_datalake_population_raw_properties_typeProperties_url')]"
+					},
+					"ls_covid19_http_casesdeaths_properties_typeProperties_url": {
+						"value": "[parameters('ls_covid19_http_casesdeaths_properties_typeProperties_url')]"
+					},
+					"ls_databricks_Population_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_databricks_Population_properties_typeProperties_existingClusterId')]"
+					},
+					"ls_datalake_deathcases_properties_typeProperties_url": {
+						"value": "[parameters('ls_datalake_deathcases_properties_typeProperties_url')]"
+					},
+					"ls_lookup_properties_typeProperties_url": {
+						"value": "[parameters('ls_lookup_properties_typeProperties_url')]"
+					},
+					"ls_sql_db_ccovid_properties_typeProperties_server": {
+						"value": "[parameters('ls_sql_db_ccovid_properties_typeProperties_server')]"
+					},
+					"ls_sql_db_ccovid_properties_typeProperties_database": {
+						"value": "[parameters('ls_sql_db_ccovid_properties_typeProperties_database')]"
+					},
+					"ls_sql_db_ccovid_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sql_db_ccovid_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "covid19datafactorySSD_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Event Population trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Event Population trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'covid19datafactorySSD_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "covid19datafactorySSD_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'covid19datafactorySSD_ArmTemplate_1')]"
+			]
+		}
+	]
+}

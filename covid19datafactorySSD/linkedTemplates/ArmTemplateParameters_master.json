@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covid19datafactorySSD"
+		},
+		"ls__covid_datalake_population_raw_accountKey": {
+			"value": ""
+		},
+		"ls_blobstrorage_population_zip_connectionString": {
+			"value": ""
+		},
+		"ls_databricks_Population_accessToken": {
+			"value": ""
+		},
+		"ls_datalake_deathcases_accountKey": {
+			"value": ""
+		},
+		"ls_lookup_accountKey": {
+			"value": ""
+		},
+		"ls_sql_db_ccovid_password": {
+			"value": ""
+		},
+		"ls__covid_datalake_population_raw_properties_typeProperties_url": {
+			"value": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_covid19_http_casesdeaths_properties_typeProperties_url": {
+			"value": "https://ecdc.blob.core.windows.net/"
+		},
+		"ls_databricks_Population_properties_typeProperties_existingClusterId": {
+			"value": "0909-121004-bwib9mgg"
+		},
+		"ls_datalake_deathcases_properties_typeProperties_url": {
+			"value": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_lookup_properties_typeProperties_url": {
+			"value": "https://covid19ssddl.dfs.core.windows.net/"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_server": {
+			"value": "covid19-server-ssd.database.windows.net"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_database": {
+			"value": "covid-db"
+		},
+		"ls_sql_db_ccovid_properties_typeProperties_userName": {
+			"value": "adm"
+		},
+		"Event Population trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/0749b64c-c8f9-4842-a5dd-b6f48dfcf695/resourceGroups/covid19-project/providers/Microsoft.Storage/storageAccounts/covid19ssdblob"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
